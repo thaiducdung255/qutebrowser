@@ -68,6 +68,9 @@ normal_bindings = {
     "<Shift-Tab>": "search-prev",
 }
 
+# insert bindings
+insert_bindings = {}
+
 # caret bindings
 caret_bindings = {
     "gf": "move-to-end-of-line",
@@ -85,6 +88,12 @@ caret_bindings = {
 bindings = {
     "normal": normal_bindings,
     "caret": caret_bindings,
+    "insert": insert_bindings,
 }
 
 bind(bindings)
+
+# url configs
+c.url.searchengines = {"DEFAULT": "https://www.google.com/search?q={}"}
+c.url.default_page = "https://www.google.com"
+c.url.start_pages = ["https://www.google.com"]
