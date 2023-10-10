@@ -20,7 +20,15 @@ def bind(bind_dict, mode="normal"):
 
 
 # unbind mappings
-unbind_keys = ["j", "k", "l", "<Control-Tab>", "<Control-Shift-Tab>", "R"]
+unbind_keys = [
+    "j",
+    "k",
+    "l",
+    "<Control-Tab>",
+    "<Control-Shift-Tab>",
+    "R",
+    "<Control-v>",
+]
 unbind(unbind_keys)
 
 # command bindings
@@ -38,6 +46,7 @@ normal_bindings = {
     "d": "devtools",
     "a": "hint inputs",
     "y": "hint links yank",
+    "Y": "yank",
     "l": "hint images",
     "<Return>": "cmd-set-text :",
     "t": "cmd-set-text -s :tab-select",
@@ -66,10 +75,16 @@ normal_bindings = {
     "gs": "view-source",
     "<Tab>": "search-next",
     "<Shift-Tab>": "search-prev",
+    "k": "mode-enter passthrough",
+    "D": "tab-clone",
+    "<Control-t>": "open -p",
 }
 
 # insert bindings
 insert_bindings = {}
+
+# passthrough bindings
+passthrough_bindings = {"<ESC>": "mode-leave"}
 
 # caret bindings
 caret_bindings = {
@@ -89,11 +104,29 @@ bindings = {
     "normal": normal_bindings,
     "caret": caret_bindings,
     "insert": insert_bindings,
+    "passthrough": passthrough_bindings,
 }
 
 bind(bindings)
 
-# url configs
-c.url.searchengines = {"DEFAULT": "https://www.google.com/search?q={}"}
+c.url.searchengines = {
+    "DEFAULT": "https://www.google.com/search?q={}",
+}
 c.url.default_page = "https://www.google.com"
 c.url.start_pages = ["https://www.google.com"]
+c.hints.chars = "arstdhneioqwfpgjluy;zxcvbkm."
+c.hints.find_implementation = "javascript"
+c.hints.uppercase = True
+c.scrolling.smooth = True
+c.scrolling.bar = "always"
+c.search.ignore_case = "smart"
+c.downloads.remove_finished = 3
+c.fonts.default_size = "11pt"
+c.fonts.default_family = "FiraCodeNerdFontMono-Regular"
+c.tabs.max_width = 300
+c.content.cookies.accept = "all"
+c.content.blocking.method = "both"
+c.auto_save.session = True
+c.input.mode_override = "normal"
+c.tabs.title.format = "{perc} {current_title:.30}"
+c.window.title_format = "qutebrowser"
