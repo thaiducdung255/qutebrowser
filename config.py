@@ -51,16 +51,16 @@ normal_bindings = {
     "<Return>": "cmd-set-text :",
     "t": "cmd-set-text -s :tab-select",
     "fd": "hint links download",
-    "<Control-h>": "tab-focus 1",
-    "<Control-n>": "tab-focus 2",
-    "<Control-e>": "tab-focus 3",
-    "<Control-i>": "tab-focus 4",
-    "<Control-o>": "tab-focus 5",
-    "<Control-j>": "tab-focus 6",
-    "<Control-l>": "tab-focus 7",
-    "<Control-u>": "tab-focus 8",
-    "<Control-y>": "tab-focus 9",
-    "<Control-;>": "tab-focus 10",
+    "1": "tab-focus 1",
+    "2": "tab-focus 2",
+    "3": "tab-focus 3",
+    "4": "tab-focus 4",
+    "5": "tab-focus 5",
+    "6": "tab-focus 6",
+    "7": "tab-focus 7",
+    "8": "tab-focus 8",
+    "9": "tab-focus 9",
+    "0": "tab-focus 10",
     "r": "reload -f",
     "R": "restart",
     "<Control-Shift-e>": "tab-move +",
@@ -81,7 +81,9 @@ normal_bindings = {
 }
 
 # insert bindings
-insert_bindings = {}
+insert_bindings = {
+    "<Ctrl-i>": "spawn --userscript ~/.config/qutebrowser/userscripts/qute-pass"
+}
 
 # passthrough bindings
 passthrough_bindings = {"<ESC>": "mode-leave"}
@@ -122,11 +124,11 @@ c.scrolling.bar = "always"
 c.search.ignore_case = "smart"
 c.downloads.remove_finished = 3
 c.fonts.default_size = "11pt"
-c.fonts.default_family = "FiraCodeNerdFontMono-Regular"
+c.fonts.default_family = "FiraCode Nerd Font Mono"
 c.tabs.max_width = 300
 c.content.cookies.accept = "all"
-c.content.blocking.method = "both"
+c.content.blocking.method = "auto"
 c.auto_save.session = True
-c.input.mode_override = "normal"
-c.tabs.title.format = "{perc} {current_title:.30}"
-c.window.title_format = "qutebrowser"
+c.input.insert_mode.auto_load = True
+c.tabs.title.format = "{index}.{perc} {current_title:.30}"
+c.window.title_format = "browser"
